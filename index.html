@@ -33,6 +33,7 @@
   nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
   .brand{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:.02em}
   .brand .x{color:var(--pink);margin:0 .28em;font-weight:400}
+  .nav-actions{display:flex;align-items:center;gap:9px}.nav-secondary{display:inline-block;color:#fff;font-family:'Fredoka',sans-serif;font-weight:500;font-size:.86rem;padding:9px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.42)}
   .nav-cta{display:inline-block;background:var(--yellow);color:var(--navy);font-family:'Fredoka',sans-serif;font-weight:600;font-size:.9rem;padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap}
 
   .hero{padding:30px 0 40px}
@@ -60,6 +61,13 @@
   .teal{background:var(--teal);color:#08312e;padding:64px 0}
   .teal h2{font-size:clamp(1.6rem,4.4vw,2.6rem);margin:8px auto 0;text-align:center}
   .teal .lead{font-size:1.08rem;max-width:60ch;margin:16px auto 0;text-align:center;font-weight:600;color:#0a3a36}
+
+  .plan-link{background:var(--cream);color:var(--ink);padding:34px 0}
+  .plan-link-card{background:#fff;border-radius:24px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:0 16px 45px rgba(20,27,82,.12)}
+  .plan-link h2{font-size:clamp(1.45rem,3.4vw,2.2rem);margin:6px 0 8px}
+  .plan-link p:not(.eyebrow){color:#525a7d;font-weight:700;max-width:67ch}
+  .plan-link .btn{background:var(--royal);color:#fff;white-space:nowrap}
+  .plan-inline{display:inline-flex;margin-top:18px;background:var(--yellow);color:var(--navy);font-family:'Fredoka',sans-serif;font-weight:600;text-decoration:none;padding:12px 18px;border-radius:999px}
 
   /* accordions */
   .accordions{background:var(--royal);padding:26px 0 40px}
@@ -169,6 +177,9 @@
     .acc summary .s-title{font-size:1.2rem}
     .card,.check,.side{padding:18px}
     .contact a{width:100%;justify-content:center}
+    .nav-secondary{display:none}
+    .plan-link-card{grid-template-columns:1fr}
+    .plan-link .btn{width:100%}
     .week>summary{padding:16px 15px}
     .w-lab{font-size:.98rem}
   }
@@ -182,7 +193,10 @@
   <div class="wrap">
     <nav>
       <div class="brand">Ben Campbell <span class="x">×</span> Recess</div>
-      <a class="nav-cta" href="#lets-talk">Let's talk →</a>
+      <div class="nav-actions">
+        <a class="nav-secondary" href="recess-social-growth-plan.html">Full growth plan</a>
+        <a class="nav-cta" href="#lets-talk">Let's talk →</a>
+      </div>
     </nav>
   </div>
 
@@ -198,7 +212,7 @@
         I've stood on every side of your marketplace — and I've already sketched how I'd grow it, down to a sample content calendar.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-pink" href="#plan">See how I'd grow Recess →</a>
+        <a class="btn btn-pink" href="recess-social-growth-plan.html">See my full 30/60/90 →</a>
         <a class="btn btn-ghost" href="#calendar">Peek the content calendar</a>
       </div>
 
@@ -229,6 +243,19 @@
       <p class="eyebrow" style="color:#08312e;text-align:center;display:block">You said "bonus points if you're in a Texas market"</p>
       <h2>I don't just cover the Texas market. I <span class="hl">am</span> it.</h2>
       <p class="lead">San Antonio native, raising a kid here, an hour from Austin and a short hop to Houston and Dallas — the exact cities where Recess is live and growing. I know how these families talk and what they trust, because they're my neighbors.</p>
+    </div>
+  </section>
+
+  <section class="plan-link" aria-label="Full Recess social growth plan">
+    <div class="wrap">
+      <div class="plan-link-card">
+        <div>
+          <p class="eyebrow" style="color:var(--pink-bright)">The complete strategy</p>
+          <h2>A dedicated social growth plan—built specifically for Recess.</h2>
+          <p>Channel roles, research signals, parent resources, local content, data-informed decisions, a city creator network and the full first 30 / 60 / 90 days.</p>
+        </div>
+        <a class="btn" href="recess-social-growth-plan.html">Open the full plan →</a>
+      </div>
     </div>
   </section>
 
@@ -309,6 +336,7 @@
         </summary>
         <div class="acc-body">
           <p class="lead">Finding great programs should feel like a joy, not a job — and so should following Recess. Here's the system: content pillars, named series, campaign tentpoles, and creator collabs.</p>
+          <a class="plan-inline" href="recess-social-growth-plan.html">Explore the complete channel + 30/60/90 plan →</a>
 
           <div class="subhead">Content buckets <span style="font-weight:400;color:#aeb6f0;font-size:.8rem">· the daily rotation</span></div>
           <p class="sub-note">Six pillars so every post has a job. Rotate weekly to stay varied without reinventing the wheel.</p>
@@ -338,13 +366,13 @@
             <div class="camp"><div class="cname">Summer Camp Countdown</div><p>A Jan–Mar early-booking push with countdown urgency and city drops. Your reviews say parents scramble in January — let's own that window.</p><span class="why">Goal: capture peak-intent bookings early</span></div>
             <div class="camp"><div class="cname">Coverage for Every Break</div><p>Always-on campaign around teacher workdays, holidays, and school breaks — the "off days" parents dread.</p><span class="why">Goal: turn dread days into booking days</span></div>
             <div class="camp"><div class="cname">"Recess is now in ___"</div><p>A repeatable new-market launch playbook: local creator seeding, city landing content, first-week blitz.</p><span class="why">Goal: a plug-and-play growth engine per city</span></div>
-            <div class="camp"><div class="cname">Give $50, Get $50</div><p>Amplify your referral offer into a social-native growth loop — shareable assets, parent-group seeding, UGC.</p><span class="why">Goal: word-of-mouth, systematized</span></div>
+            <div class="camp"><div class="cname">Book Good. Give Back.</div><p>Turn Recess school partnerships and PTA/PTO giveback into a social-native community growth story.</p><span class="why">Goal: school adoption + parent referrals</span></div>
           </div>
 
           <div class="subhead">Influencer &amp; community collabs</div>
           <p class="sub-note">For parents, a trusted local voice outperforms a huge one. I'd build a bench of micro-creators per market.</p>
           <div class="collab-grid">
-            <div class="collab"><div class="clabel">Local parent micro-creators</div><p>SA / Austin / Dallas / Houston mom &amp; dad creators posting real planning journeys.</p></div>
+            <div class="collab"><div class="clabel">Local parent micro-creators</div><p>Austin / Dallas / Houston mom &amp; dad creators posting real planning journeys.</p></div>
             <div class="collab"><div class="clabel">Mom-group &amp; PTA ambassadors</div><p>Tap the group texts and mom groups where booking decisions actually happen.</p></div>
             <div class="collab"><div class="clabel">Provider co-marketing</div><p>Turn listed camps into creators; cross-promote to both audiences.</p></div>
             <div class="collab"><div class="clabel">Recess Parent Panel</div><p>A small crew of trusted local parents who test and post honestly — a steady UGC pipeline.</p></div>
