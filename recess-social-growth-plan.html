@@ -181,6 +181,18 @@ nav{min-height:72px;display:flex;align-items:center;justify-content:space-betwee
 .kpi b{display:block;font-family:'Fredoka';color:var(--yellow);font-size:.95rem}
 .kpi span{display:block;color:#dce2ff;font-size:.73rem;font-weight:800;margin-top:3px}
 .measure .baseline{margin-top:16px;color:#cfd6ff;font-size:.83rem;font-weight:700}
+.brief-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.brief-answer{background:#fff;border:1px solid var(--line);border-radius:22px;padding:23px;color:var(--ink);box-shadow:0 10px 28px rgba(20,27,82,.07)}
+.brief-answer .question{font-family:'Fredoka';font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pink-bright)}
+.brief-answer h3{font-size:1.3rem;margin:8px 0 10px}
+.brief-answer p{color:var(--muted);font-size:.9rem;font-weight:700}
+.brief-answer ul{list-style:none;display:grid;gap:9px;margin-top:14px}
+.brief-answer li{position:relative;padding-left:20px;color:#4a5378;font-size:.86rem;font-weight:700}
+.brief-answer li:before{content:'•';position:absolute;left:2px;top:-1px;color:var(--teal);font-size:1.1rem;font-weight:900}
+.brief-answer .takeaway{margin-top:15px;padding:13px 14px;border-radius:14px;background:#eef7f5;color:var(--teal-deep);font-size:.82rem;font-weight:800}
+.brief-answer .rhythm{display:grid;gap:10px;margin-top:14px}
+.brief-answer .rhythm div{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:12px 13px;color:#4a5378;font-size:.84rem;font-weight:700}
+.brief-answer .rhythm b{font-family:'Fredoka';color:var(--royal);margin-right:5px}
 
 
 /* data operating system */
@@ -291,6 +303,7 @@ footer .brand{color:#fff;font-size:1.05rem;margin-bottom:5px}
   .kpi-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:720px){
+  .brief-answers{grid-template-columns:1fr}
   .section{padding:62px 0}
   .wrap{padding:0 18px}
   .hero{padding:48px 0 60px}
@@ -638,6 +651,60 @@ footer .brand{color:#fff;font-size:1.05rem;margin-bottom:5px}
         <div class="kpi"><b>Marketplace growth</b><span>Provider leads, school interest, partner amplification</span></div>
       </div>
       <div class="baseline">I would establish honest baselines during the first 30 days, then set numeric 60- and 90-day targets using actual Recess conversion data. Confident-looking made-up benchmarks are still made up.</div>
+    </div>
+
+    <div class="brief-answers" aria-label="Direct answers to the 30 60 90 brief">
+      <article class="brief-answer">
+        <div class="question">Which metrics first—and why?</div>
+        <h3>Find the biggest break in the path to registration.</h3>
+        <p>I would first map the journey from content exposure to marketplace action, then pair that funnel with qualitative community signals.</p>
+        <ul>
+          <li><strong>Watch time and completion:</strong> whether the creative earns and holds attention.</li>
+          <li><strong>Saves, shares and meaningful comments:</strong> whether parents find the content genuinely useful.</li>
+          <li><strong>Profile visits, clicks, search starts and provider-page views:</strong> whether attention becomes intent.</li>
+          <li><strong>Registrations and assisted bookings:</strong> whether the content reaches the right families and supports growth.</li>
+          <li><strong>Recurring questions, sentiment and response time:</strong> where parents need clearer information or faster support.</li>
+        </ul>
+        <div class="takeaway">The largest drop-off tells me where to focus first: stronger creative, clearer calls to action, better destinations, more relevant local content—or a marketplace information gap.</div>
+      </article>
+
+      <article class="brief-answer">
+        <div class="question">How does month-one data shape days 31–90?</div>
+        <h3>Use the first month as a prioritization system.</h3>
+        <p>I would not lock the next 60 days before seeing what Recess parents, markets and inventory actually reveal.</p>
+        <ul>
+          <li>Scale topics and formats that produce qualified searches, saves and registrations.</li>
+          <li>Localize content where a city, district or activity category consistently over-indexes.</li>
+          <li>Turn repeated questions into response videos, guides, FAQs or improved landing experiences.</li>
+          <li>Revise or retire content that creates reach without useful downstream action.</li>
+          <li>Use the findings to set realistic 60- and 90-day targets from Recess’s actual baselines.</li>
+        </ul>
+        <div class="takeaway">Days 31–90 become an informed plan built from real behavior—not a calendar created on day one and defended out of pride.</div>
+      </article>
+
+      <article class="brief-answer">
+        <div class="question">What would I test early?</div>
+        <h3>Test the variables most likely to change behavior.</h3>
+        <p>Early tests would include hooks, video length, founder-led versus parent-led delivery, local versus broad framing, calls to action and landing destinations.</p>
+        <ul>
+          <li>Change one meaningful variable at a time whenever possible.</li>
+          <li>Define the intended job before publishing: attention, engagement, intent or registration.</li>
+          <li>Compare like with like across a fair timeframe and similar distribution conditions.</li>
+          <li>Judge success by the intended outcome—not by reach alone.</li>
+        </ul>
+        <div class="takeaway">A lower-reach post that drives registrations may be more valuable than a viral post that sends no one to Recess.</div>
+      </article>
+
+      <article class="brief-answer">
+        <div class="question">How I would operate day to day</div>
+        <h3>Plan deliberately. Stay responsive.</h3>
+        <div class="rhythm">
+          <div><b>Daily:</b> Monitor comments, DMs, trends, active campaigns and time-sensitive inventory; respond to parents and keep content moving through creation and approval.</div>
+          <div><b>Weekly:</b> Review performance, adjust the calendar, develop upcoming creative, gather provider or parent assets and align priorities with immediate booking needs.</div>
+          <div><b>Monthly:</b> Report what drove attention, intent and registrations; recommend what to stop, continue or scale; and align the next campaign cycle with the wider team.</div>
+        </div>
+        <div class="takeaway">I would work closely with growth, product, support, providers, school partnerships and the founders—using a shared calendar and clear approvals while protecting room for real-time opportunities.</div>
+      </article>
     </div>
   </div>
 </section>
