@@ -238,9 +238,13 @@ nav{min-height:72px;display:flex;align-items:center;justify-content:space-betwee
 .caption-box p{white-space:pre-line;margin-top:8px;color:#eef1ff;font-weight:700;font-size:.9rem}
 .static-preview{margin-top:18px;border-radius:18px;overflow:hidden;background:var(--cream);border:1px dashed #bfc3d9;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--muted);font-weight:800}
 .static-preview img{width:100%;height:100%;object-fit:cover;display:block}
-.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px}
-.video-card .video-frame{margin:18px auto 0;max-width:360px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,var(--navy),var(--royal));border:1px solid rgba(20,27,82,.18);display:flex;align-items:center;justify-content:center;position:relative}
-.video-frame video{width:100%;height:100%;display:block;object-fit:cover;background:#0e1235}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}
+.video-card .video-frame{margin:16px 0 0;width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,var(--navy),var(--royal));border:1px solid rgba(20,27,82,.18);display:flex;align-items:center;justify-content:center;position:relative}
+.video-frame video,.video-frame iframe{width:100%;height:100%;display:block;border:0;background:#0e1235}
+.video-frame video{object-fit:cover}
+.video-link{width:100%;height:100%;display:block;position:relative;color:#fff;text-decoration:none}
+.video-link img{width:100%;height:100%;display:block;object-fit:cover}
+.video-link:after{content:"▶";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(20,27,82,.9);display:flex;align-items:center;justify-content:center;font-size:1.35rem;padding-left:4px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 .video-placeholder{padding:30px;text-align:center;color:#fff;font-weight:800;line-height:1.5}
 .video-placeholder code{display:block;margin-top:10px;padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.12);color:var(--yellow);font-size:.72rem;word-break:break-word}
 .video-goal{margin-top:14px;font-size:.82rem;font-weight:900;color:var(--royal)}
@@ -754,8 +758,8 @@ footer .brand{color:#fff;font-size:1.05rem;margin-bottom:5px}
 <script>
 /* ==========================================================
    CONTENT EXAMPLES — EDIT HERE
-   Change titles, descriptions, captions or image filenames below.
-   Keep all image files inside the /assets folder in your repo.
+   Change titles, descriptions, captions, image filenames or hosted Reel URLs below.
+   Keep only lightweight image assets in the repo; host videos externally.
    ========================================================== */
 const CONTENT_EXAMPLES = {
   carousel: {
@@ -784,7 +788,8 @@ There’s an easier way to find what’s next: hello-recess.com`,
       description: "A camp-registration notification turns one calm afternoon into competitive parent cardio.",
       caption: `That peaceful moment before you remember summer camp registration is competitive cardio.\n\nFind camps, classes and programs without the panic at hello-recess.com.`,
       goal: "Awareness · Marketplace visits",
-      video: "assets/registration-alert-reel.mp4",
+      embed: "https://www.youtube.com/embed/fdBVG11tulU", // Paste an unlisted YouTube or Vimeo EMBED URL here
+      watchUrl: "https://youtube.com/shorts/fdBVG11tulU?feature=share", // Optional normal watch URL if you prefer a clickable thumbnail
       poster: "assets/registration-alert-poster.jpg",
       tags: ["Instagram Reel", "TikTok", "Situational comedy"]
     },
@@ -793,7 +798,8 @@ There’s an easier way to find what’s next: hello-recess.com`,
       description: "A parent keeps overcomplicating the explanation before landing on the simple benefit: Recess makes finding kids’ activities easier.",
       caption: `We could call it a marketplace for camps, classes and kids’ programs.\n\nOr we could just say: it makes planning summer way easier.\n\nFind your kid’s next thing at hello-recess.com.`,
       goal: "Product understanding · Profile visits",
-      video: "assets/explaining-recess-reel.mp4",
+      embed: "https://youtube.com/embed/_LfxkVvNkho", // Paste an unlisted YouTube or Vimeo EMBED URL here
+      watchUrl: "https://youtube.com/shorts/_LfxkVvNkho?feature=share", // Optional normal watch URL if you prefer a clickable thumbnail
       poster: "assets/explaining-recess-poster.jpg",
       tags: ["Instagram Reel", "TikTok", "Character comedy"]
     }
@@ -844,19 +850,24 @@ There’s an easier way to find what’s next: hello-recess.com`,
     const desc=document.createElement('p'); desc.className='desc'; desc.textContent=reel.description; card.appendChild(desc);
 
     const frame=document.createElement('div'); frame.className='video-frame';
-    const video=document.createElement('video');
-    video.controls=true; video.playsInline=true; video.preload='metadata';
-    video.src=reel.video; video.poster=reel.poster;
-    video.setAttribute('aria-label',reel.title);
-    frame.appendChild(video); card.appendChild(frame);
-
-    const showPlaceholder=()=>{
-      frame.textContent='';
+    if(reel.embed){
+      const iframe=document.createElement('iframe');
+      iframe.src=reel.embed;
+      iframe.title=reel.title;
+      iframe.loading='lazy';
+      iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen=true;
+      frame.appendChild(iframe);
+    }else if(reel.watchUrl){
+      const link=document.createElement('a'); link.className='video-link'; link.href=reel.watchUrl; link.target='_blank'; link.rel='noopener'; link.setAttribute('aria-label',`Watch ${reel.title}`);
+      const img=document.createElement('img'); img.src=reel.poster; img.alt=`Poster image for ${reel.title}`; img.loading='lazy';
+      link.appendChild(img); frame.appendChild(link);
+    }else{
       const placeholder=document.createElement('div'); placeholder.className='video-placeholder';
-      placeholder.innerHTML=`Add the finished Reel to the assets folder.<code>${reel.video}</code>`;
+      placeholder.innerHTML='Host this Reel as an unlisted YouTube or Vimeo video, then paste its embed URL in the content settings.';
       frame.appendChild(placeholder);
-    };
-    video.addEventListener('error',showPlaceholder,{once:true});
+    }
+    card.appendChild(frame);
 
     const goal=document.createElement('div'); goal.className='video-goal'; goal.textContent=`Goal: ${reel.goal}`; card.appendChild(goal);
     const caption=document.createElement('div'); caption.className='caption-box';
